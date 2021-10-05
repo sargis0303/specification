@@ -25,14 +25,6 @@ public class ApplicantSearchCriteria {
         this.offset = offset;
     }
 
-    public String[] getSort() {
-        return sort;
-    }
-
-    public void setSort(String[] sort) {
-        this.sort = sort;
-    }
-
     public String getName() {
         return name;
     }
