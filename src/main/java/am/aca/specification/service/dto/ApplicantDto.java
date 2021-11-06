@@ -1,18 +1,30 @@
 package am.aca.specification.service.dto;
 
 import am.aca.specification.entity.Applicant;
+import am.aca.specification.validation.Age;
 import org.springframework.util.CollectionUtils;
+import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Validated
 public class ApplicantDto {
     private Long id;
     private String name;
+
+    @Email
     private String email;
+
+    @NotNull
     private String phoneNumber;
     private String address;
+
+    @Age(value = 10, message = "Age must be greater than 10")
+    private int age;
 
     private CourseDto course;
 
@@ -87,5 +99,13 @@ public class ApplicantDto {
 
     public void setCourse(CourseDto course) {
         this.course = course;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
